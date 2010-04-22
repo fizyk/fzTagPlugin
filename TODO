@@ -1,8 +1,0 @@
-# fzTagPlugin's TODO #
-
-* Count field, to get the tag's weight
-* Component to list popular tag
-* Admin module (?) Edit? Add certainly.
-* Taggable settings per model
-* Possibility to turn off the widget injection per form
-* Frontend components with jQuery decorations.
