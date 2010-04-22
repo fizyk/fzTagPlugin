@@ -46,7 +46,6 @@ class sfWidgetFormFzTagsAutocomplete extends sfWidgetFormSelect
     $this->addOption('filter_case', $appOptions['filter_case'] );
     $this->addOption('filter_hide', $appOptions['filter_hide'] );
     $this->addOption('filter_selected', false);
-    $this->addOption('complete_text', $appOptions['complete_text'] );
     $this->addOption('maxshownitems', $appOptions['maxshownitems'] );
     $this->addOption('maxitems', $appOptions['maxitems'] );
     $this->addOption('onselect', false);

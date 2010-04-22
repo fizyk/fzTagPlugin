@@ -30,7 +30,10 @@ class fzTagPluginConfiguration extends sfPluginConfiguration
     if( $form instanceof BaseFormDoctrine && $form->getObject()->getTable()->hasTemplate('fzTaggable'))
     {
       $form->setWidget('tags', new sfWidgetFormFzTagsAutocomplete(
-        array('choices' => $form->getObject()->getTagNames() )
+        array('choices' => $form->getObject()->getTagNames(),
+          'complete_text' => sfContext::getInstance()
+            ->getI18N()->
+                    __( 'Start to type...', array(), 'fzTag' ))
       ));
 
       $form->setValidator('tags', new sfValidatorFzTagsAutocomplete(array(
