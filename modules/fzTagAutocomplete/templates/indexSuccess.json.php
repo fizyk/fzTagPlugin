@@ -1,0 +1,1 @@
+[<?php $k = 0; foreach($tags as $tag): ?>{"caption":"<?php  echo $tag['name'];?>", "value":"<?php echo $tag['name'];?>"}<?php if( count( $tags ) > ++$k ):?>,<?php endif;?><?php endforeach;?>]
