@@ -21,7 +21,7 @@ To install plugin from symfony plugin repository run:
 
 To install plugin from package, copy it to your project root's directory and run:
 
-    ./symfony plugin:install fzTagPlugin-1.0.0.tgz
+    ./symfony plugin:install fzTagPlugin-1.0.3.tgz
 
 After installing, you have to run:
 
@@ -61,7 +61,11 @@ After adding behaviour run:
 
 ###FCBKcomplete###
 
-Here are settings for fcbkcomplete script that can be set for per app basis:
+To be able to use FCBKcomplete, you have to include jQuery library. Either locally,
+or from [Google code](http://www.google.pl/url?q=http://code.google.com/apis/ajaxlibs/).
+FCBKcomplete won't be working without it!
+
+Here are settings for fcbkcomplete script that can be set for tagging per app basis:
 
     all:
       fzTagPlugin:
@@ -73,4 +77,12 @@ Here are settings for fcbkcomplete script that can be set for per app basis:
           maxshownitems:  30    # maximum numbers that will be shown at drop-down list (less better performance)
           maxitems:             # maximum item that can be added to the list
           firstselected:  false # automatically select first element from drop-down
-          complete_text: "Start to type..."
+
+Unlike in dmTagPlugin, the *complete_text* parameter is configured through i18n string.
+
+Thanks
+------------
+
+Great thanks to Thibault Duplesis, who developet the original
+[dmTagPlugin](http://diem-project.org/plugins/dmtagplugin) for
+[Diem CMF](http://diem-project.org/)
