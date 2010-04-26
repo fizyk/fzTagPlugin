@@ -38,7 +38,7 @@ class sfWidgetFormFzTagsAutocomplete extends sfWidgetFormSelect
   private function setFcbkCompleteOptions()
   {
     $appOptions = sfConfig::get( 'app_fzTagPlugin_fcbkcomplete' );
-    $this->addOption('json_url', '/fzTagAutocomplete' );
+    $this->addOption('json_url', sfContext::getInstance()->getController()->genUrl( '@fz_tag_autocomplete', false) );
     $this->addOption('cache', false);
     $this->addOption('height', false);
     $this->addOption('newel', $appOptions['newel']  );
