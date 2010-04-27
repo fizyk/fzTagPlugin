@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
 <xliff version="1.0">
-  <file source-language="EN" target-language="pl" datatype="plaintext" original="fzTag" date="2010-03-16T21:58:27Z" product-name="fzTag">
+  <file source-language="EN" target-language="pl" datatype="plaintext" original="messages" date="2010-03-16T21:58:27Z" product-name="messages">
     <header/>
     <body>
       <trans-unit id="1" approved="yes">
-        <source>Start to type...</source>
-        <target>Zacznij pisać...</target>
+        <source>Tags</source>
+        <target>Tagi</target>
       </trans-unit>
     </body>
   </file>
