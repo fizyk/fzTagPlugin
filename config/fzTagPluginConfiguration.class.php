@@ -27,7 +27,16 @@ class fzTagPluginConfiguration extends sfPluginConfiguration
   {
     $form = $event->getSubject();
 
-    if( $form instanceof BaseFormDoctrine && $form->getObject()->getTable()->hasTemplate('fzTaggable'))
+    /*
+     * Only add autocomplete widget if:
+     * 1. form is instance of BaseFormDoctrine
+     * 2. Table behind form has fzTaggable behaviour
+     * 3. fz_tag_autocomplete route is added in routing yml
+     *    (since that depends on module availability, hence the check)
+     */
+    if( $form instanceof BaseFormDoctrine 
+            && $form->getObject()->getTable()->hasTemplate('fzTaggable')
+            && in_array('fzTagAutocomplete', sfConfig::get('sf_enabled_modules', array() ) ) )
     {
       $form->setWidget('tags', new sfWidgetFormFzTagsAutocomplete(
         array('choices' => $form->getObject()->getTagNames(),
