@@ -80,6 +80,20 @@ Here are settings for fcbkcomplete script that can be set for tagging per app ba
 
 Unlike in dmTagPlugin, the *complete_text* parameter is configured through i18n string.
 
+###Autocomplete widget appearance###
+
+If you don't want to show autocomplete widget to show in one of your apps, simply
+do not enable fzTagAutocomplete module.
+
+There might be however some cases, where you wouldn't like it to show for specified
+form only, if that's the case, all you need to do, is to unset tags_list field in
+your form's configure() method:
+
+    public function configure()
+    {
+        unset( $this['tags_list'] );
+    }
+
 Libraries
 ------------
 Emposha's [FCBKcomplete](http://github.com/emposha/FCBKcomplete) (2.7.4)

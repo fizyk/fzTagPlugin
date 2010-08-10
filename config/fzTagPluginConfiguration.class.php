@@ -33,10 +33,12 @@ class fzTagPluginConfiguration extends sfPluginConfiguration
      * 2. Table behind form has fzTaggable behaviour
      * 3. fz_tag_autocomplete route is added in routing yml
      *    (since that depends on module availability, hence the check)
+     * 4. if the tags_list is set in form.
      */
     if( $form instanceof BaseFormDoctrine 
             && $form->getObject()->getTable()->hasTemplate('fzTaggable')
-            && in_array('fzTagAutocomplete', sfConfig::get('sf_enabled_modules', array() ) ) )
+            && in_array('fzTagAutocomplete', sfConfig::get('sf_enabled_modules', array() ) )
+            && isset( $form['tags_list'] ) )
     {
       $form->setWidget('tags', new sfWidgetFormFzTagsAutocomplete(
         array('choices' => $form->getObject()->getTagNames(),
