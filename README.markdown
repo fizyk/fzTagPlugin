@@ -80,9 +80,13 @@ Here are settings for fcbkcomplete script that can be set for tagging per app ba
 
 Unlike in dmTagPlugin, the *complete_text* parameter is configured through i18n string.
 
+Libraries
+------------
+Emposha's [FCBKcomplete](http://github.com/emposha/FCBKcomplete) (2.7.4)
+
 Thanks
 ------------
 
-Great thanks to Thibault Duplesis, who developet the original
+Great thanks to Thibault Duplesis, who developed the original
 [dmTagPlugin](http://diem-project.org/plugins/dmtagplugin) for
 [Diem CMF](http://diem-project.org/)

@@ -1,5 +1,7 @@
+/* Copyright: Guillermo Rauch <http://devthought.com/> - Distributed under MIT - Keep this message! */
+
 /* TextboxList sample CSS */
-ul.holder { margin: 0; border: 1px solid #999; overflow: hidden; height: auto !important; height: 1%; padding: 4px 5px 0; }
+ul.holder { margin: 0; border: 1px solid #999; overflow: hidden; height: auto !important; height: 1%; padding: 4px 5px 0; border-radius: 6px}
 *:first-child+html ul.holder { padding-bottom: 2px; } * html ul.holder { padding-bottom: 2px; } /* ie7 and below */
 ul.holder li { float: left; list-style-type: none; margin: 0 5px 4px 0; white-space:nowrap;}
 ul.holder li.bit-box, ul.holder li.bit-input input { font: 11px "Lucida Grande", "Verdana"; }
@@ -36,7 +38,7 @@ ul.holder li.bit-box-focus a.closebutton, ul.holder li.bit-box-focus a.closebutt
 .facebook-auto ul li.auto-focus { background: #4173CC; color: #fff; }
 .facebook-auto ul li.auto-focus em { background: none; }
 .deleted { background-color:#4173CC !important; color:#ffffff !important;}
-
+.hidden { display:none;}
 
 #demo ul.holder li.bit-input input { padding: 2px 0 1px; border: 1px solid #999; }
 .ie6fix {height:1px;width:1px; position:absolute;top:0px;left:0px;z-index:1;}
