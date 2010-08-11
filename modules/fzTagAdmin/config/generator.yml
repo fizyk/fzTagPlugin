@@ -14,8 +14,8 @@ generator:
     config:
       actions: ~
       fields:
-        name: ~
       list:
+        title: 'Tags list'
         display:
           - '=name'
         sort: [name, asc]
@@ -27,4 +27,6 @@ generator:
           NONE: [name]
         class: fzTagAdminForm
       edit:
+        title: 'Edit "%%name%%" tag'
       new:
+        title: 'New tag'
