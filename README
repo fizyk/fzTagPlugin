@@ -59,6 +59,30 @@ After adding behaviour run:
     ./symfony doctrine:migrate
     ./symfony doctrine:build --all-classes
 
+
+###Autocomplete widget appearance###
+
+If you want to show autocomplete widget to the user, first of all, you have to
+enable *fzTagAutocomplete* module for the app, that the widget has to be included:
+
+    all:
+      .settings:
+        # Some settings
+        enabled_modules: [default, fzTagAutocomplete]
+
+Without this, autocomplete widget wouldn't be included into the form of taggable
+object. Enabling this module will also append a route that the widget is getting
+tags from.
+
+There might be however some cases, where you wouldn't like the autocomplete widget to show
+for specified form only, if that's the case, all you need to do, is to unset
+tags_list field in your form's configure() method:
+
+    public function configure()
+    {
+        unset( $this['tags_list'] );
+    }
+
 ###FCBKcomplete###
 
 To be able to use FCBKcomplete, you have to include jQuery library. Either locally,
@@ -79,20 +103,6 @@ Here are settings for fcbkcomplete script that can be set for tagging per app ba
           firstselected:  false # automatically select first element from drop-down
 
 Unlike in dmTagPlugin, the *complete_text* parameter is configured through i18n string.
-
-###Autocomplete widget appearance###
-
-If you don't want to show autocomplete widget to show in one of your apps, simply
-do not enable fzTagAutocomplete module.
-
-There might be however some cases, where you wouldn't like it to show for specified
-form only, if that's the case, all you need to do, is to unset tags_list field in
-your form's configure() method:
-
-    public function configure()
-    {
-        unset( $this['tags_list'] );
-    }
 
 Libraries
 ------------
