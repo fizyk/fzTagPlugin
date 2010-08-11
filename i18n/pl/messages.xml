@@ -8,6 +8,22 @@
         <source>Tags</source>
         <target>Tagi</target>
       </trans-unit>
+      <trans-unit id="2">
+        <source>Name</source>
+        <target>Nazwa</target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>Tags list</source>
+        <target>Lista tagów</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>Edit "%%name%%" tag</source>
+        <target>Edycja tagu "%%name%%"</target>
+      </trans-unit>
+      <trans-unit id="5">
+        <source>New tag</source>
+        <target>Nowy tag</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
