@@ -104,6 +104,15 @@ Here are settings for fcbkcomplete script that can be set for tagging per app ba
 
 Unlike in dmTagPlugin, the *complete_text* parameter is configured through i18n string.
 
+###Others###
+
+There's an admin module, that you can activate in your backend app:
+
+    all:
+      .settings:
+        # Some settings
+        enabled_modules: [default, fzTagAdmin]
+
 Libraries
 ------------
 Emposha's [FCBKcomplete](http://github.com/emposha/FCBKcomplete) (2.7.4)
