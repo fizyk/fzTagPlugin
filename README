@@ -113,6 +113,9 @@ There's an admin module, that you can activate in your backend app:
         # Some settings
         enabled_modules: [default, fzTagAdmin]
 
+The route for the fzTagAdmin module is fz_tag and will be added to your app when
+the fzTagAdmin module is enabled.
+
 Libraries
 ------------
 Emposha's [FCBKcomplete](http://github.com/emposha/FCBKcomplete) (2.7.4)
