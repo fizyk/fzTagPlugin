@@ -19,6 +19,7 @@ generator:
         display:
           - '=name'
         sort: [name, asc]
+        object_actions: { _delete: ~ }
       filter:
         display:
           - name
