@@ -7,25 +7,51 @@
  */
 class PluginfzTagTable extends Doctrine_Table
 {
-  protected $taggableModelsLoaded = false;
-  /**
-   * Returns an instance of this class.
-   *
-   * @return object PluginfzTagTable
-   */
-  public static function getInstance()
-  {
-    return Doctrine_Core::getTable('PluginfzTag');
-  }
 
-  /**
-   * Method that returns array of tags (tagName => tagName) for autocomplete.
-   * @return array
-   * @author Grzegorz Śliwiński
-   */
-  public function getTagsForAutocomplete()
-  {
-    return $this->createQuery('t')->select( 't.name as name' )
-        ->execute( array(), Doctrine_Core::HYDRATE_ARRAY );
-  }
+    protected $taggableModelsLoaded = false;
+
+    /**
+     * Returns an instance of this class.
+     *
+     * @return object PluginfzTagTable
+     */
+    public static function getInstance()
+    {
+        return Doctrine_Core::getTable('PluginfzTag');
+    }
+
+    /**
+     * Method that returns array of tags (tagName => tagName) for autocomplete.
+     * @return array
+     * @author Grzegorz Śliwiński
+     */
+    public function getTagsForAutocomplete()
+    {
+        return $this->createQuery('t')->select('t.name as name')
+                ->execute(array(), Doctrine_Core::HYDRATE_ARRAY);
+    }
+
+    /**
+     * Method executes query on tags with given ids to increase their weight
+     * @param array $ids
+     */
+    public function increaseTagsWeight(Array $ids)
+    {
+        $this->createQuery('t')->update()
+                ->set('t.count', 't.count + 1')
+                ->whereIn('t.id', $ids)->execute();
+    }
+
+    /**
+     * Method executes query on tags with given ids to decrease their weight
+     * @param array $ids
+     */
+    public function decreasetagsWeight(Array $ids)
+    {
+        $this->createQuery('t')->update()
+                ->set('t.count', 't.count - 1')
+                ->whereIn('t.id', $ids)
+                ->andWhere('t.count > 0')->execute();
+    }
+
 }
