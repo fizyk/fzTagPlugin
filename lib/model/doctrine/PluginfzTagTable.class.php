@@ -33,25 +33,31 @@ class PluginfzTagTable extends Doctrine_Table
 
     /**
      * Method executes query on tags with given ids to increase their weight
-     * @param array $ids
+     * @param array $tagIds
      */
-    public function increaseTagsWeight(Array $ids)
+    public function increaseTagsWeight(Array $tagIds)
     {
-        $this->createQuery('t')->update()
-                ->set('t.count', 't.count + 1')
-                ->whereIn('t.id', $ids)->execute();
+
+        if( count( $tagIds ) > 0 )
+        {
+            $this->createQuery('t')->update()
+                    ->set('t.count', 't.count + 1')
+                    ->whereIn('t.id', $tagIds)->execute();
+        }
     }
 
     /**
      * Method executes query on tags with given ids to decrease their weight
-     * @param array $ids
+     * @param array $tagIds
      */
-    public function decreasetagsWeight(Array $ids)
+    public function decreaseTagsWeight(Array $tagIds)
     {
-        $this->createQuery('t')->update()
-                ->set('t.count', 't.count - 1')
-                ->whereIn('t.id', $ids)
-                ->andWhere('t.count > 0')->execute();
+        if( count( $tagIds ) > 0 )
+        {
+            $this->createQuery('t')->update()
+                    ->set('t.count', 't.count - 1')
+                    ->whereIn('t.id', $tagIds)
+                    ->andWhere('t.count > 0')->execute();
+        }
     }
-
 }

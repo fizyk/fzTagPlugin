@@ -99,11 +99,14 @@ class fzTaggable extends Doctrine_Template
         }
 
         $tagIds = $this->getTagIds($tags);
-        // TODO get id's of all conected tags
-        // TODO decrease weight on all unlinked.
+        // we're getting all connected tag's ids
+        $oldIds = $this->getInvoker()->getTags()->getPrimaryKeys();
+        // Unlinking tags and decreasing their weight afterwards
         $this->getInvoker()->unlink($this->_options['tagAlias']);
-        //TODO increase weight on those linked
+        fzTagTable::getInstance()->decreaseTagsWeight($oldIds);
+        // Linking tags and increasing their weight afterwards
         $this->getInvoker()->link($this->_options['tagAlias'], $tagIds);
+        fzTagTable::getInstance()->increaseTagsWeight($tagIds);
 
         return $this->getInvoker();
     }
@@ -115,8 +118,9 @@ class fzTaggable extends Doctrine_Template
      */
     public function addTags($tags)
     {
-        // TODO increase weight on of those tags
-        $this->getInvoker()->link($this->_options['tagAlias'], $this->getTagIds($tags));
+        $tagIds = $this->getTagIds($tags);
+        $this->getInvoker()->link($this->_options['tagAlias'], $tagIds);
+        fzTagTable::getInstance()->increaseTagsWeight($tagIds);
 
         return $this->getInvoker();
     }
@@ -128,8 +132,9 @@ class fzTaggable extends Doctrine_Template
      */
     public function removeTags($tags)
     {
-        // TODO decrease weight on those unlinked tags
-        $this->getInvoker()->unlink($this->_options['tagAlias'], $this->getTagIds($tags));
+        $tagIds = $this->getTagIds($tags);
+        $this->getInvoker()->unlink($this->_options['tagAlias'], $tagIds);
+        fzTagTable::getInstance()->decreaseTagsWeight($tagIds);
 
         return $this->getInvoker();
     }
@@ -141,7 +146,9 @@ class fzTaggable extends Doctrine_Template
     public function removeAllTags()
     {
         // TODO decrease weight on all unlinked tags
+        $tagIds = $this->getInvoker()->getTags()->getPrimaryKeys();
         $this->getInvoker()->unlink($this->_options['tagAlias']);
+        fzTagTable::getInstance()->decreaseTagsWeight($tagIds);
 
         return $this->getInvoker();
     }
