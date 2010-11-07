@@ -23,7 +23,7 @@ class fzTaggableGenerator extends Doctrine_Record_Generator
 
   public function buildRelation()
   {
-    $this->_table->bind(array($this->_options['tagClass'], array(
+    $this->_table->bind(array($this->_options['tagClass']. ' as '. $this->_options['table']->getComponentName().'s', array(
       'local'    => 'tag_id',
       'foreign'  => 'id',
       'onDelete' => 'CASCADE'
