@@ -9,5 +9,17 @@
         <target>Zacznij pisać...</target>
       </trans-unit>
     </body>
+    <body>
+      <trans-unit id="2" approved="yes">
+        <source>Tag cloud</source>
+        <target>Chmura tagów</target>
+      </trans-unit>
+    </body>
+    <body>
+      <trans-unit id="3" approved="yes">
+        <source>Tags</source>
+        <target>Tagi</target>
+      </trans-unit>
+    </body>
   </file>
 </xliff>
