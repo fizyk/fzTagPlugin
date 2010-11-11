@@ -21,6 +21,22 @@ class PluginfzTagTable extends Doctrine_Table
     }
 
     /**
+     * Method that returns weight ordered query
+     * @param integer $limit
+     * @return Doctrine_Query
+     * @author Grzegorz Śliwiński
+     */
+    public function getTagsWeightOrderedQuery( $limit = null)
+    {
+        $query = $this->createQuery('t')->orderBy('t.count DESC');
+        if( $limit )
+        {
+            $query->limit($limit);
+        }
+        return $limit;
+    }
+
+    /**
      * Method that returns array of tags (tagName => tagName) for autocomplete.
      * @return array
      * @author Grzegorz Śliwiński
