@@ -116,6 +116,17 @@ There's an admin module, that you can activate in your backend app:
 The route for the fzTagAdmin module is fz_tag and will be added to your app when
 the fzTagAdmin module is enabled.
 
+###Tasks###
+
+* fzTag:calculate-weight - this task should update each tag's count attribiute - number indicating how many times tag was used. Depends on how many tags and taggable models are in project it may take quite a lot of time and/or memory to do that.
+
+###Compinents###
+
+fzTag comes with two components:
+
+* list - is a simple component showing list of tags
+* tagCloud - is a simple tag cloud component. By default it shows 20 most popular tags ordered by their popularity.
+
 Libraries
 ------------
 Emposha's [FCBKcomplete](http://github.com/emposha/FCBKcomplete) (2.7.4)
