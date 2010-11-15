@@ -54,7 +54,7 @@ class calculateTagsWeightTask extends sfBaseTask
             // update each tag
             foreach( $tags as $tag )
             {
-                $tag->setCount( $tag->getCountTotal() );
+                $tag->setWeight( $tag->getCountTotal() );
                 $tag->save();
             }
         }

@@ -24,7 +24,7 @@ class fzTagComponents extends sfComponents
         {
             foreach($weights as $weight)
             {
-                $this->weightMap[$weight['count']] = 1;
+                $this->weightMap[$weight['weight']] = 1;
             }
         }
         // if we have up to five different weights and up to five different tags,
@@ -34,7 +34,7 @@ class fzTagComponents extends sfComponents
             $css = 1;
             foreach($weights as $weight)
             {
-                $this->weightMap[$weight['count']] = $css++;
+                $this->weightMap[$weight['weight']] = $css++;
             }
         }
         // otherwise we'll try to level that five levels between tags weight
@@ -46,7 +46,7 @@ class fzTagComponents extends sfComponents
             $tags_mapped = 0;
             foreach($weights as $weight)
             {
-                $this->weightMap[$weight['count']] = $css;
+                $this->weightMap[$weight['weight']] = $css;
                 // we add number of tags with current weight to know,
                 // how many of them are alrady mapped
                 $tags_mapped += $weight['num'];

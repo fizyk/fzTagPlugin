@@ -28,7 +28,7 @@ class PluginfzTagTable extends Doctrine_Table
      */
     public function getTagsForCloudQuery( $limit = null)
     {
-        $query = $this->createQuery('t')->where('t.count > 0')->orderBy('t.count DESC');
+        $query = $this->createQuery('t')->where('t.weight > 0')->orderBy('t.weight DESC');
         if( $limit )
         {
             $query->limit($limit);
@@ -37,14 +37,14 @@ class PluginfzTagTable extends Doctrine_Table
     }
 
     /**
-     * Method returns all possible counts values for getTagsWeightOrderedQuery method
+     * Method returns all possible weights values for getTagsWeightOrderedQuery method
      * @param integer $limit
      * @return Doctrine_Query
      * @author grzegorz Śliwiński
      */
     public function getWeightsForCloudQuery( $limit = null )
     {
-        return $this->getTagsForCloudQuery($limit)->select('t.count, COUNT(t.id) num')->groupBy('t.count');
+        return $this->getTagsForCloudQuery($limit)->select('t.weight, COUNT(t.id) num')->groupBy('t.weight');
     }
 
     /**
@@ -68,7 +68,7 @@ class PluginfzTagTable extends Doctrine_Table
         if( count( $tagIds ) > 0 )
         {
             $this->createQuery('t')->update()
-                    ->set('t.count', 't.count + 1')
+                    ->set('t.weight', 't.weight + 1')
                     ->whereIn('t.id', $tagIds)->execute();
         }
     }
@@ -82,9 +82,9 @@ class PluginfzTagTable extends Doctrine_Table
         if( count( $tagIds ) > 0 )
         {
             $this->createQuery('t')->update()
-                    ->set('t.count', 't.count - 1')
+                    ->set('t.weight', 't.weight - 1')
                     ->whereIn('t.id', $tagIds)
-                    ->andWhere('t.count > 0')->execute();
+                    ->andWhere('t.weight > 0')->execute();
         }
     }
 }
