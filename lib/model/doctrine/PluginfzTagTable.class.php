@@ -26,7 +26,7 @@ class PluginfzTagTable extends Doctrine_Table
      * @return Doctrine_Query
      * @author Grzegorz Śliwiński
      */
-    public function getTagsWeightOrderedQuery( $limit = null)
+    public function getTagsForCloudQuery( $limit = null)
     {
         $query = $this->createQuery('t')->where('t.count > 0')->orderBy('t.count DESC');
         if( $limit )
@@ -34,6 +34,17 @@ class PluginfzTagTable extends Doctrine_Table
             $query->limit($limit);
         }
         return $query;
+    }
+
+    /**
+     * Method returns all possible counts values for getTagsWeightOrderedQuery method
+     * @param integer $limit
+     * @return Doctrine_Query
+     * @author grzegorz Śliwiński
+     */
+    public function getWeightsForCloudQuery( $limit = null )
+    {
+        return $this->getTagsForCloudQuery($limit)->select('t.count, COUNT(t.id) num')->groupBy('t.count');
     }
 
     /**
