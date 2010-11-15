@@ -28,12 +28,12 @@ class PluginfzTagTable extends Doctrine_Table
      */
     public function getTagsWeightOrderedQuery( $limit = null)
     {
-        $query = $this->createQuery('t')->orderBy('t.count DESC');
+        $query = $this->createQuery('t')->where('t.count > 0')->orderBy('t.count DESC');
         if( $limit )
         {
             $query->limit($limit);
         }
-        return $limit;
+        return $query;
     }
 
     /**
