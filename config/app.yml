@@ -9,5 +9,5 @@ all:
       filter_case:    false # case sensitive filter
       filter_hide:    false # show/hide filtered items
       maxshownitems:  30    # maximum numbers that will be shown at dropdown list (less better performance)
-      maxitems:             # maximum item that can be added to the list
+      maxitems:       10    # maximum item that can be added to the list
       firstselected:  false # automaticly select first element from dropdown
