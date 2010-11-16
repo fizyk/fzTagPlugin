@@ -1,3 +1,4 @@
+<?php use_stylesheet('../fzTagPlugin/css/fz_tag.css'); ?>
 <h4><?php echo __('Tag cloud', array(), 'fzTag') ?></h4>
 <ul class="fz-tag-cloud">
 <?php foreach( $tags as $tag ): ?>
