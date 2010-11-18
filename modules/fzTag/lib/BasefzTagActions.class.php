@@ -8,9 +8,11 @@ class BasefzTagActions extends sfActions
 {
     public function executeIndex(sfWebRequest $request)
     {
-        # TODO! Retrieve tag's query
-        # TODO! Create pager
-        # TODO! Show simple list
+        $query = fzTagTable::getInstance()->createQuery('t')->orderBy('t.name ASC');
+        $this->pager = new sfDoctrinePager('fzTag', 10);
+        $this->pager->setQuery($query);
+        $this->pager->setPage($request->getParameter( 'page', 1 ));
+        $this->pager->init();
         # TODO! Add possibility to sort by name (asc, desc) and weight (asc, weight)
     }
 
