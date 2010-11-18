@@ -120,7 +120,7 @@ the fzTagAdmin module is enabled.
 
 * fzTag:calculate-weight - this task should update each tag's count attribiute - number indicating how many times tag was used. Depends on how many tags and taggable models are in project it may take quite a lot of time and/or memory to do that.
 
-###Compinents###
+###Components###
 
 fzTag comes with two components:
 
@@ -137,3 +137,8 @@ Thanks
 Great thanks to Thibault Duplesis, who developed the original
 [dmTagPlugin](http://diem-project.org/plugins/dmtagplugin) for
 [Diem CMF](http://diem-project.org/)
+
+Support
+------------
+fzTagPlugin is completely free, but you can support it's creator:
+[Support fzTagPlugin](http://www.pledgie.com/campaigns/13967)
