@@ -24,6 +24,10 @@
         <source>New tag</source>
         <target>Nowy tag</target>
       </trans-unit>
+      <trans-unit id="6">
+        <source>Weight</source>
+        <target>Waga</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
