@@ -8,12 +8,21 @@ class BasefzTagActions extends sfActions
 {
     public function executeIndex(sfWebRequest $request)
     {
-        $query = fzTagTable::getInstance()->createQuery('t')->orderBy('t.name ASC');
+        $this->sortParameters = array();
+        if( $request->hasParameter('by') )
+        {
+            $this->sortParameters['by'] = strip_tags( $request->getParameter('by') );
+        }
+        if( $request->hasParameter('order') )
+        {
+            $this->sortParameters['order'] = strip_tags( $request->getParameter('order') );
+        }
+
+        $query = fzTagTable::getInstance()->getListQuery( $this->sortParameters );
         $this->pager = new sfDoctrinePager('fzTag', 10);
         $this->pager->setQuery($query);
         $this->pager->setPage($request->getParameter( 'page', 1 ));
         $this->pager->init();
-        # TODO! Add possibility to sort by name (asc, desc) and weight (asc, weight)
     }
 
     public function executeShow(sfWebRequest $request)

@@ -48,6 +48,33 @@ class PluginfzTagTable extends Doctrine_Table
     }
 
     /**
+     * This method returns sorted query, based on the passed array, that needs to consist of order & by keys
+     * @param array $sortOptions
+     * @return Doctrine_Query
+     * @author Grzegorz Śliwiński
+     */
+    public function getListQuery( array $sortOptions = array() )
+    {
+        $query = $this->createQuery('t');
+
+        $order = ' ASC';
+        $by = 't.name';
+        if(is_array($sortOptions) )
+        {
+            if( array_key_exists('order', $sortOptions ) && $sortOptions['order'] == 'desc' )
+            {
+                $order = ' DESC';
+            }
+            if( array_key_exists('by', $sortOptions ) && $sortOptions['by'] == 'weight' )
+            {
+                $by = 't.weight';
+            }
+        }
+
+        return $query->orderBy($by.$order);
+    }
+
+    /**
      * Method that returns array of tags (tagName => tagName) for autocomplete.
      * @return array
      * @author Grzegorz Śliwiński
