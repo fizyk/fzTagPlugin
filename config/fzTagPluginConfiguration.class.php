@@ -22,6 +22,10 @@ class fzTagPluginConfiguration extends sfPluginConfiguration
         {
             $this->dispatcher->connect( 'routing.load_configuration', array( $this, 'addFzTagAdminRoute' ) );
         }
+        if( in_array( 'fzTag', sfConfig::get( 'sf_enabled_modules', array( ) ) ) )
+        {
+            $this->dispatcher->connect( 'routing.load_configuration', array( $this, 'addFzTagRoute' ) );
+        }
     }
 
     /**
@@ -86,6 +90,34 @@ class fzTagPluginConfiguration extends sfPluginConfiguration
                     'with_wildcard_routes' => true,
                     'collection_actions' => array( 'filter' => 'post', 'batch' => 'post' ),
                     'requirements' => array( ),
+                ) ) );
+    }
+
+    public function addFzTagRoute( sfEvent $event )
+    {
+        $r = $event->getSubject();
+        // preprend our route
+        $r->prependRoute( 'fz_tag',
+                new sfDoctrineRoute( '/tags', 
+                    array(
+                        'module' => 'fzTag',
+                        'action' => 'index'
+                        ),
+                    array(),
+                    array(
+                        'model' => 'fzTag',
+                        'type' => 'object'
+                ) ) );
+        $r->prependRoute( 'fz_tag_show',
+                new sfDoctrineRoute( '/tags/:name',
+                    array(
+                        'module' => 'fzTag',
+                        'action' => 'show'
+                        ),
+                    array(),
+                    array(
+                        'model' => 'fzTag',
+                        'type' => 'object'
                 ) ) );
     }
 
