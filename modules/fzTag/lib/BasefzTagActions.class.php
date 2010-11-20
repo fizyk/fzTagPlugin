@@ -18,7 +18,7 @@ class BasefzTagActions extends sfActions
 
     public function executeShow(sfWebRequest $request)
     {
-        # TODO! Simple tag's show action with just a header
+        $this->tag = $this->getRoute()->getObject();
     }
 }
 ?>

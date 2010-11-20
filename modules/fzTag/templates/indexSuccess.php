@@ -8,7 +8,7 @@
 <h1><?php echo __('Tags', array(), 'fzTag'); ?></h1>
 <ul class="fz-tag-list">
 <?php foreach($pager as $tag): ?>
-    <li><span class="fz-tag-name"><?php echo $tag; ?></span>
+    <li><span class="fz-tag-name"><?php echo link_to( $tag, 'fz_tag_show', $tag); ?></span>
         <span class="fz-tag-weight"><?php echo $tag->getWeight(); ?></span></li>
 <?php endforeach; ?>
 </ul>
