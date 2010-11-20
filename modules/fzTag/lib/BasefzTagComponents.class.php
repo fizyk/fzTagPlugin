@@ -18,8 +18,12 @@ class BasefzTagComponents extends sfComponents
 
     public function executeTagCloud()
     {
-        $this->tags = fzTagTable::getInstance()->getTagsForCloudQuery(20)->execute();
-        $weights = fzTagTable::getInstance()->getWeightsForCloudQuery(20)->execute(array(), Doctrine_Core::HYDRATE_ARRAY);
+        if( !isset( $this->limit ))
+        {
+            $this->limit = 20;
+        }
+        $this->tags = fzTagTable::getInstance()->getTagsForCloudQuery($this->limit)->execute();
+        $weights = fzTagTable::getInstance()->getWeightsForCloudQuery($this->limit)->execute(array(), Doctrine_Core::HYDRATE_ARRAY);
 
         // That map will be used to create tag's style class (up to five different)
         $this->weightMap = array();

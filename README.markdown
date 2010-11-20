@@ -126,6 +126,9 @@ fzTag comes with two components:
 
 * list - is a simple component showing list of tags
 * tagCloud - is a simple tag cloud component. By default it shows 20 most popular tags ordered by their popularity.
+You can overwrite that by passing limit parameter to component:
+
+        <?php include_component('fzTag', 'tagCloud', array('limit' => 25 ));  ?>
 
 Libraries
 ------------
