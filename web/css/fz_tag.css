@@ -17,14 +17,14 @@ ul.fz-tag-cloud
     list-style: none;
 }
 
-div.fz-tag-cloud-3d a
+div.fz-tag-cloud-3d a, ul.fz-tag-cloud a, canvas#fz-tag-canvas a
 {
     text-decoration: none;
     padding: 2px;
 }
 
 
-div.fz-tag-cloud-3d a:hover
+div.fz-tag-cloud-3d a:hover, ul.fz-tag-cloud a:hover, canvas#fz-tag-canvas a
 {
     border: #000000 solid 1px;
     border-radius: 3px;
