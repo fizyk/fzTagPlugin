@@ -26,13 +26,18 @@ class PluginfzTagTable extends Doctrine_Table
      * @return Doctrine_Query
      * @author Grzegorz Śliwiński
      */
-    public function getTagsForCloudQuery( $limit = null)
+    public function getTagsForCloudQuery( $limit = 20)
     {
-        $query = $this->createQuery('t')->where('t.weight > 0')->orderBy('t.weight DESC');
-        if( $limit )
+        //just to make sure, in case someone passes false, or anything
+        if( !$limit or !is_numeric($limit) )
         {
-            $query->limit($limit);
+            $limit = 20;
         }
+        return $this->createQuery('t')
+                ->where('t.id IN (SELECT t2.id FROM fzTag t2 WHERE t2.weight > 0 ORDER BY t2.weight DESC)')
+                ->orderBy('RANDOM() ASC');
+
+        $query = $this->createQuery('t')->where('t.weight > 0')->orderBy('t.weight DESC')->limit($limit);
         return $query;
     }
 

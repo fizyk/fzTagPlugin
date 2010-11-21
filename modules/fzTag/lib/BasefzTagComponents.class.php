@@ -22,8 +22,13 @@ class BasefzTagComponents extends sfComponents
         {
             $this->limit = 20;
         }
-        $this->tags = fzTagTable::getInstance()->getTagsForCloudQuery($this->limit)->execute();
+
         $weights = fzTagTable::getInstance()->getWeightsForCloudQuery($this->limit)->execute(array(), Doctrine_Core::HYDRATE_ARRAY);
+        uasort($weights, array($this, 'sortWeights'));
+        
+        $this->tags = fzTagTable::getInstance()->getTagsForCloudQuery($this->limit)->execute();
+
+
 
         // That map will be used to create tag's style class (up to five different)
         $this->weightMap = array();
@@ -63,5 +68,15 @@ class BasefzTagComponents extends sfComponents
             }
         }
     }
+
+    private function sortWeights($a, $b)
+    {
+        if($a['weight'] == $b['weight'])
+        {
+            return 0;
+        }
+        return ($a['weight'] > $b['weight']) ? -1 : 1;
+    }
+
 }
 ?>
