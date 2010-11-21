@@ -69,6 +69,19 @@ class BasefzTagComponents extends sfComponents
         }
     }
 
+    public function execute3dTagCloud()
+    {
+        $this->cloudOptions = array(
+            'height' => $this->getVar('width') ? $this->getVar('width') : 100,
+            'width' => $this->getVar('width') ? $this->getVar('width') : 100,
+            'min_font_size' => $this->getVar('min_font_size') ? $this->getVar('min_font_size') : 10,
+            'max_font_size' => $this->getVar('max_font_size') ? $this->getVar('max_font_size') : 16,
+            'zoom' => $this->getVar('zoom') ? $this->getvar('zoom') : 100
+        );
+
+        $this->executeTagCloud();
+    }
+
     private function sortWeights($a, $b)
     {
         if($a['weight'] == $b['weight'])

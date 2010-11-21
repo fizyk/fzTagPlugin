@@ -164,6 +164,20 @@ You can overwrite that by passing limit parameter to component:
 
         <?php include_component('fzTag', 'tagCloud', array('limit' => 25 ));  ?>
 
+* 3dTagCloud - components that generates spherical tag cloud using [jquery.tagsphere](http://bitbucket.org/elbeanio/jquery.tagsphere/wiki/Home) jQuery plugin created by elbeanio. It's functionality extends that of tagCloud component.
+Call and options (default values):
+
+        <?php include_component('fzTag', '3dTagCloud',
+                            array(
+                                'limit' => 25,
+                                'width' => 100,
+                                'height' => 100,
+                                'min_font_size' => 10,
+                                'max_font_size' => 16,
+                                'zoom' => 100
+                                ));  ?>
+
+
 Libraries
 ------------
 Emposha's [FCBKcomplete](http://github.com/emposha/FCBKcomplete) (2.7.4)

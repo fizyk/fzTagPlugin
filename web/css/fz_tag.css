@@ -17,6 +17,20 @@ ul.fz-tag-cloud
     list-style: none;
 }
 
+div.fz-tag-cloud-3d a
+{
+    text-decoration: none;
+    padding: 2px;
+}
+
+
+div.fz-tag-cloud-3d a:hover
+{
+    border: #000000 solid 1px;
+    border-radius: 3px;
+    text-decoration: none;
+}
+
 ul.fz-tag-cloud li
 {
     display: inline;
