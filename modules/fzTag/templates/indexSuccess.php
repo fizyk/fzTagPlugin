@@ -7,27 +7,31 @@
 ?>
 <h1><?php echo __('Tags', array(), 'fzTag'); ?></h1>
 <div class="fz-tag-list-header">Sort by:
-    <span class="fz-tag-list-header-name">
+    <span class="name header-<?php echo $sortParameters['by'] == 'name' 
+                ? ($sortParameters['order'] == 'desc' ? 'desc' : 'asc' )
+                : ''; ?>">
     <?php
         echo link_to('Name', 'fz_tag', 
                 array(
                     'page'=> $pager->getPage(),
                     'by' => 'name',
                     'order' => 
-                            ($sf_request->getParameter('order') == 'asc'
-                                && $sf_request->getParameter('by') == 'name')
-                            ? 'desc' : 'asc')
+                            ($sortParameters['order'] == 'desc'
+                                && $sortParameters['by'] == 'name')
+                            ? 'asc' : 'desc')
                 ) ?>
     </span>
-    <span class="fz-tag-list-header-weight">
+    <span class="weight header-<?php echo $sortParameters['by'] == 'weight'
+                ? ($sortParameters['order'] == 'desc' ? 'desc' : 'asc' )
+                : ''; ?>">
     <?php
         echo link_to('Weight', 'fz_tag',
                 array(
                     'page'=> $pager->getPage(),
                     'by' => 'weight',
                     'order' =>
-                            ($sf_request->getParameter('order') == 'asc'
-                                && $sf_request->getParameter('by') == 'weight')
+                            ($sortParameters['order'] == 'asc'
+                                && $sortParameters['by'] == 'weight')
                             ? 'desc' : 'asc')
                 ) ?>
     </span>

@@ -8,7 +8,10 @@ class BasefzTagActions extends sfActions
 {
     public function executeIndex(sfWebRequest $request)
     {
-        $this->sortParameters = array();
+        $this->sortParameters = array(
+            'by' => 'name',
+            'order' => 'asc'
+            );
         if( $request->hasParameter('by') )
         {
             $this->sortParameters['by'] = strip_tags( $request->getParameter('by') );

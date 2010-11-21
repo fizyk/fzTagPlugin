@@ -83,7 +83,7 @@ tags_list field in your form's configure() method:
         unset( $this['tags_list'] );
     }
 
-###FCBKcomplete###
+###Settings###
 
 To be able to use FCBKcomplete, you have to include jQuery library. Either locally,
 or from [Google code](http://www.google.pl/url?q=http://code.google.com/apis/ajaxlibs/).
@@ -119,9 +119,11 @@ You can also configure some options on per model basis:
       columns:
         #Columns
 
-If you won't configure these options per model, it'll default to those efined in app.yml
+If you won't configure these options per model, it'll default to those defined in app.yml
 
-###Others###
+###Modules###
+
+####fzTagAdmin####
 
 There's an admin module, that you can activate in your backend app:
 
@@ -132,6 +134,21 @@ There's an admin module, that you can activate in your backend app:
 
 The route for the fzTagAdmin module is fz_tag and will be added to your app when
 the fzTagAdmin module is enabled.
+
+####fzTag####
+
+plugin also contains front end module to show either tags list or  tag's page.
+Both actions get routes included as soon as fzTag module is enabled:
+
+    all:
+      .settings:
+        # Some settings
+        enabled_modules: [default, fzTag]
+
+Routes names are:
+
+* fz_tag - for tags list
+* fz_tag_show - for tag's show page
 
 ###Tasks###
 
@@ -161,4 +178,5 @@ Great thanks to Thibault Duplesis, who developed the original
 Support
 ------------
 fzTagPlugin is completely free, but you can support it's creator:
-[Support fzTagPlugin](http://www.pledgie.com/campaigns/13967)
+
+[![support fzTagPlugin](http://www.pledgie.com/campaigns/13967.png?skin_name=chrome "support fzTagPlugin")](http://www.pledgie.com/campaigns/13967)

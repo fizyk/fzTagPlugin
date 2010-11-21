@@ -65,3 +65,20 @@ ul.fz-tag-list span.fz-tag-name
     padding-left: 2px;
     width: 300px;
 }
+
+div.fz-tag-list-header a
+{
+    padding-right: 20px;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+span.header-asc a
+{
+    background-image: url('../../sfDoctrinePlugin/images/asc.png');
+}
+
+span.header-desc a
+{
+    background-image: url('../../sfDoctrinePlugin/images/desc.png');
+}
