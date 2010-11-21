@@ -29,26 +29,36 @@ class sfWidgetFormFzTagsAutocomplete extends sfWidgetFormSelect
   protected function configure($options = array(), $attributes = array())
   {
     parent::configure($options, $attributes);
+    $this->setOption('multiple', true);
+    $this->addOption('model_options', $options['model_options']);
+    
     $this->setFcbkCompleteOptions();
 
-    $this->setOption('multiple', true);
 
   }
 
   private function setFcbkCompleteOptions()
   {
     $appOptions = sfConfig::get( 'app_fzTagPlugin_fcbkcomplete' );
+    $model_options = $this->getOption('model_options');
+//    var_dump( $model_options );
+//    die();
+    
     $this->addOption('json_url', sfContext::getInstance()->getController()->genUrl( '@fz_tag_autocomplete', false) );
     $this->addOption('cache', false);
     $this->addOption('height', false);
-    $this->addOption('newel', $appOptions['newel']  );
-    $this->addOption('firstselected', $appOptions['firstselected'] );
+    $this->addOption('newel', array_key_exists('newel', $model_options) ?
+                                $model_options['newel'] : $appOptions['newel']  );
+    $this->addOption('firstselected', array_key_exists('firstselected', $model_options) ?
+                                $model_options['firstselected'] : $appOptions['firstselected'] );
     $this->addOption('filter_case', $appOptions['filter_case'] );
     $this->addOption('filter_hide', $appOptions['filter_hide'] );
     $this->addOption('filter_selected', false);
     $this->addOption('complete_text', true );
-    $this->addOption('maxshownitems', $appOptions['maxshownitems'] );
-    $this->addOption('maxitems', $appOptions['maxitems'] );
+    $this->addOption('maxshownitems', $model_options['maxshownitems'] ?
+                                $model_options['maxshownitems'] : $appOptions['maxshownitems'] );
+    $this->addOption('maxitems', $model_options['maxitems'] ?
+                                $model_options['maxitems'] : $appOptions['maxitems'] );
     $this->addOption('onselect', false);
     $this->addOption('onremove', false);
     $this->addOption('delay ', 1);

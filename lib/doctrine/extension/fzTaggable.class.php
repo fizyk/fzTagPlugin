@@ -18,7 +18,11 @@ class fzTaggable extends Doctrine_Template
         'children' => array(),
         'cascadeDelete' => true,
         'appLevelDelete' => false,
-        'cascadeUpdate' => false
+        'cascadeUpdate' => false,
+        'options' => array(
+            'maxshownitems' => false,
+            'maxitems' => false
+        )
     );
 
     public function __construct(array $options = array())

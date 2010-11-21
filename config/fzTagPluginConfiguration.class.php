@@ -49,8 +49,11 @@ class fzTagPluginConfiguration extends sfPluginConfiguration
                 && in_array( 'fzTagAutocomplete', sfConfig::get( 'sf_enabled_modules', array( ) ) )
                 && isset( $form[ 'tags_list' ] ) )
         {
+//            var_dump( $form->getObject()->getTable()->getTemplate('fzTaggable')->getOptions() );
+//            die();
             $form->setWidget( 'tags', new sfWidgetFormFzTagsAutocomplete(
                             array( 'choices' => $form->getObject()->getTagNames(),
+                                'model_options' => $form->getObject()->getTable()->getTemplate('fzTaggable')->getOption('options'),
                                 'complete_text' => sfContext::getInstance()
                                         ->getI18N()->
                                         __( 'Start to type...', array( ), 'fzTag' ) )

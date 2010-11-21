@@ -104,6 +104,23 @@ Here are settings for fcbkcomplete script that can be set for tagging per app ba
 
 Unlike in dmTagPlugin, the *complete_text* parameter is configured through i18n string.
 
+You can also configure some options on per model basis:
+
+    Model:
+      actAs:
+        #Other behaviours
+        fzTaggable:
+            options:
+                maxshownitems: 10
+                maxitems: 15
+                newel: false
+                firstselected: false
+        #Other behaviours
+      columns:
+        #Columns
+
+If you won't configure these options per model, it'll default to those efined in app.yml
+
 ###Others###
 
 There's an admin module, that you can activate in your backend app:
