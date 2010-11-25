@@ -176,7 +176,7 @@ Call and options (default values):
                                 'max_font_size' => 16,
                                 'zoom' => 100
                                 ));  ?>
-* canvasTagCloud - components generating tag cloud in canvas html5 element using [TagCanvas](http://www.goat1000.com/tagcanvas.php) jQuery plugin created by graham.
+* canvasTagCloud - components generating tag cloud in canvas html5 element using [TagCanvas](http://www.goat1000.com/tagcanvas.php) jQuery plugin created by Graham Breach.
 it supports all plugin's options as component's options as well as width and height for canvas element:
 
         <?php include_component('fzTag', 'canvasTagCloud',
@@ -206,6 +206,9 @@ it supports all plugin's options as component's options as well as width and hei
 Libraries
 ------------
 Emposha's [FCBKcomplete](http://github.com/emposha/FCBKcomplete) (2.7.4)
+Graham Breach's [TagCanvas](http://www.goat1000.com/tagcanvas.php) (1.4.1)
+elbeanio's [jquery.tagsphere](http://bitbucket.org/elbeanio/jquery.tagsphere/wiki/Home).
+
 
 Thanks
 ------------
