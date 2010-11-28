@@ -21,7 +21,7 @@ To install plugin from symfony plugin repository run:
 
 To install plugin from package, copy it to your project root's directory and run:
 
-    ./symfony plugin:install fzTagPlugin-1.0.3.tgz
+    ./symfony plugin:install fzTagPlugin-1.2.2.tgz
 
 After installing, you have to run:
 
@@ -205,9 +205,9 @@ it supports all plugin's options as component's options as well as width and hei
 
 Libraries
 ------------
-Emposha's [FCBKcomplete](http://github.com/emposha/FCBKcomplete) (2.7.4)
-Graham Breach's [TagCanvas](http://www.goat1000.com/tagcanvas.php) (1.4.1)
-elbeanio's [jquery.tagsphere](http://bitbucket.org/elbeanio/jquery.tagsphere/wiki/Home).
+* Emposha's [FCBKcomplete](http://github.com/emposha/FCBKcomplete) (2.7.4)
+* Graham Breach's [TagCanvas](http://www.goat1000.com/tagcanvas.php) (1.4.1)
+* elbeanio's [jquery.tagsphere](http://bitbucket.org/elbeanio/jquery.tagsphere/wiki/Home).
 
 
 Thanks

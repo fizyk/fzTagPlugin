@@ -34,11 +34,8 @@ class PluginfzTagTable extends Doctrine_Table
             $limit = 20;
         }
         return $this->createQuery('t')
-                ->where('t.id IN (SELECT t2.id FROM fzTag t2 WHERE t2.weight > 0 ORDER BY t2.weight DESC)')
+                ->where('t.id IN (SELECT t2.id FROM fzTag t2 WHERE t2.weight > 0 ORDER BY t2.weight DESC LIMIT ?)', $limit)
                 ->orderBy('RANDOM() ASC');
-
-        $query = $this->createQuery('t')->where('t.weight > 0')->orderBy('t.weight DESC')->limit($limit);
-        return $query;
     }
 
     /**
