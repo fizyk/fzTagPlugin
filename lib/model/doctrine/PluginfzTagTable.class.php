@@ -33,8 +33,13 @@ class PluginfzTagTable extends Doctrine_Table
         {
             $limit = 20;
         }
+        //Need to do this like that, otherwise we might get mysql error: 
+        //This version of MySQL doesn't yet support 'LIMIT & IN/ALL/ANY/SOME subquery'
+        $tags = $this->createQuery('t')->select('t.id')->where('t.weight > 0')->orderBy('t.weight DESC')->limit($limit)->execute();
+        $pks = $tags->getPrimaryKeys();
+        
         return $this->createQuery('t')
-                ->where('t.id IN (SELECT t2.id FROM fzTag t2 WHERE t2.weight > 0 ORDER BY t2.weight DESC LIMIT ?)', $limit)
+                ->whereIn('t.id', $pks)
                 ->orderBy('RANDOM() ASC');
     }
 

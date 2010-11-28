@@ -21,7 +21,7 @@ To install plugin from symfony plugin repository run:
 
 To install plugin from package, copy it to your project root's directory and run:
 
-    ./symfony plugin:install fzTagPlugin-1.2.2.tgz
+    ./symfony plugin:install fzTagPlugin-1.2.3.tgz
 
 After installing, you have to run:
 
