@@ -2,3 +2,6 @@ fzTag:
   columns:
     name:       { type: string(255), notnull: true, unique: true }
     weight:     { type: integer, notnull: true, default: 0 }
+  indexes:
+    tag_weight:
+      fields: [weight]

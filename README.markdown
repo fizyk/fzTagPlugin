@@ -11,6 +11,7 @@ few tweaks more than just clearing all diem specific code:
 [sfDoctrineFBAutocompletePlugin](http://www.symfony-project.org/plugins/sfDoctrineFBAutocompletePlugin)
 version 0.1.3
 
+For news about fzTagPlugin, please visit [fizyk's website](http://www.fizyk.net.pl/blog/tag/fzTag).
 
 Installation
 ------------
