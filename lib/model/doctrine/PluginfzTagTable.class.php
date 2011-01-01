@@ -44,17 +44,6 @@ class PluginfzTagTable extends Doctrine_Table
     }
 
     /**
-     * Method returns all possible weights values for getTagsWeightOrderedQuery method
-     * @param integer $limit
-     * @return Doctrine_Query
-     * @author grzegorz Śliwiński
-     */
-    public function getWeightsForCloudQuery( $limit = null )
-    {
-        return $this->getTagsForCloudQuery($limit)->select('t.weight, COUNT(t.id) num')->groupBy('t.weight');
-    }
-
-    /**
      * This method returns sorted query, based on the passed array, that needs to consist of order & by keys
      * @param array $sortOptions
      * @return Doctrine_Query

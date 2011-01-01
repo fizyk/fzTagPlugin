@@ -22,22 +22,42 @@ class BasefzTagComponents extends sfComponents
         {
             $this->limit = 20;
         }
-
-        $weights = fzTagTable::getInstance()->getWeightsForCloudQuery($this->limit)->execute(array(), Doctrine_Core::HYDRATE_ARRAY);
-        uasort($weights, array($this, 'sortWeights'));
         
         $this->tags = fzTagTable::getInstance()->getTagsForCloudQuery($this->limit)->execute();
+        $this->weightMap = $this->setWeightMap( $this->tags );
 
 
-
+    }
+    
+    /**
+     * metod is used to construct weigtMap, that helps generating different sizes of tags with different weights.
+     * @param Doctrine_Collection $tags
+     * @return array 
+     * @author Grzegorz Śliwiński
+     */
+    protected function setWeightMap( Doctrine_Collection $tags )
+    {
+        $weights = array();
+        foreach($this->tags as $tag)
+        {
+            if(!array_key_exists($tag->getWeight(), $weights))
+            {
+                $weights[$tag->getWeight()] = 1;
+            }
+            else
+            {
+                $weights[$tag->getWeight()]++;
+            }
+        }
+        asort($weights);
         // That map will be used to create tag's style class (up to five different)
-        $this->weightMap = array();
+        $weightMap = array();
         // if we have only one weight, we'll just create one entry
         if(count($weights) <= 1)
         {
-            foreach($weights as $weight)
+            foreach($weights as $weight => $count)
             {
-                $this->weightMap[$weight['weight']] = 1;
+                $weightMap[$weight] = 1;
             }
         }
         // if we have up to five different weights and up to five different tags,
@@ -45,9 +65,9 @@ class BasefzTagComponents extends sfComponents
         elseif(count($weights) <= 5 && $this->tags->count() <= 5)
         {
             $css = 1;
-            foreach($weights as $weight)
+            foreach($weights as $weight => $count)
             {
-                $this->weightMap[$weight['weight']] = $css++;
+                $weightMap[$weight] = $css++;
             }
         }
         // otherwise we'll try to level that five levels between tags weight
@@ -57,16 +77,18 @@ class BasefzTagComponents extends sfComponents
             // we have five levels, so we set boundary, when each tag will change
             $space = $this->tags->count() / 5;
             $tags_mapped = 0;
-            foreach($weights as $weight)
+            foreach($weights as $weight => $count)
             {
-                $this->weightMap[$weight['weight']] = $css;
+                $weightMap[$weight] = $css;
                 // we add number of tags with current weight to know,
                 // how many of them are alrady mapped
-                $tags_mapped += $weight['num'];
+                $tags_mapped += $count;
                 // simply as that, if we exceed given number, we'll just get the higher number.
                 $css = floor(1 + ($tags_mapped / $space));
             }
         }
+        
+        return $weightMap;
     }
 
     public function execute3dTagCloud()
@@ -107,15 +129,6 @@ class BasefzTagComponents extends sfComponents
         );
 
         $this->executeTagCloud();
-    }
-
-    private function sortWeights($a, $b)
-    {
-        if($a['weight'] == $b['weight'])
-        {
-            return 0;
-        }
-        return ($a['weight'] > $b['weight']) ? -1 : 1;
     }
 
 }
