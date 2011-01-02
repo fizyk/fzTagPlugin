@@ -6,7 +6,7 @@ This plugin provides similar functionality to that provided by
 [Diem CMF](http://diem-project.org/). It's in fact backported dmTagPlugin, with
 few tweaks more than just clearing all diem specific code:
 
-* Uses non modified fcbkcomplete library (http://www.emposha.com/javascript/fcbkcomplete.html)
+* Uses slightly modified fcbkcomplete library (http://www.emposha.com/javascript/fcbkcomplete.html)
 * Uses modified sfWidgetFormDoctrineFBAutocompleter widget from
 [sfDoctrineFBAutocompletePlugin](http://www.symfony-project.org/plugins/sfDoctrineFBAutocompletePlugin)
 version 0.1.3
@@ -218,8 +218,10 @@ Great thanks to Thibault Duplesis, who developed the original
 [dmTagPlugin](http://diem-project.org/plugins/dmtagplugin) for
 [Diem CMF](http://diem-project.org/)
 
-Support
+Support and Help
 ------------
 fzTagPlugin is completely free, but you can support it's creator:
 
 [![support fzTagPlugin](http://www.pledgie.com/campaigns/13967.png?skin_name=chrome "support fzTagPlugin")](http://www.pledgie.com/campaigns/13967)
+
+For help regarding this plugin, you can go to plugin's github issue tracker, or contact author via jabber/xmpp/gtalk protocol: [fizyk@fizyk.net.pl](xmpp:fizyk@fizyk.net.pl) or though e-mail: [fizyk@fizyk.net.pl](mailto:fizyk@fizyk.net.pl)

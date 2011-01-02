@@ -105,12 +105,21 @@ class fzTaggable extends Doctrine_Template
         $tagIds = $this->getTagIds($tags);
         // we're getting all connected tag's ids
         $oldIds = $this->getInvoker()->getTags()->getPrimaryKeys();
-        // Unlinking tags and decreasing their weight afterwards
-        $this->getInvoker()->unlink($this->_options['tagAlias']);
-        fzTagTable::getInstance()->decreaseTagsWeight($oldIds);
+        $removeIds = array_diff($oldIds, $tagIds);
+        $addIds = array_diff($tagIds, $oldIds);
+        // Unlinking deleted tags and decreasing their weight afterwards
+        if( count($removeIds) > 0 )
+        {
+            $this->getInvoker()->unlink($this->_options['tagAlias'], $removeIds);
+            fzTagTable::getInstance()->decreaseTagsWeight($removeIds);
+        }
+        
         // Linking tags and increasing their weight afterwards
-        $this->getInvoker()->link($this->_options['tagAlias'], $tagIds);
-        fzTagTable::getInstance()->increaseTagsWeight($tagIds);
+        if( count($addIds) > 0 )
+        {
+            $this->getInvoker()->link($this->_options['tagAlias'], $addIds);
+            fzTagTable::getInstance()->increaseTagsWeight($addIds);
+        }
 
         return $this->getInvoker();
     }
