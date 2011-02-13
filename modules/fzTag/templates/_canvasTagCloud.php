@@ -30,13 +30,16 @@
             initial: <?php echo $cloudOptions['initial'] ? $cloudOptions['initial'] : 'null' ?>,
             freezeActive: <?php echo $cloudOptions['freezeActive'] ? 'true' : 'false' ?>,
             reverse: <?php echo $cloudOptions['reverse'] ? 'true' : 'false' ?>,
-            hideTags: <?php echo $cloudOptions['hideTags'] ? 'true' : 'false' ?>
+            hideTags: <?php echo $cloudOptions['hideTags'] ? 'true' : 'false' ?>,
+            weight: <?php echo $cloudOptions['weight'] ? 'true' : 'false' ?>,
+            weightMode: '<?php echo $cloudOptions['weightMode'] ? $cloudOptions['weightMode'] : "size" ?>',
+            weightSize: <?php echo $cloudOptions['weightSize'] ? $cloudOptions['weightSize'] : 1.0 ?>,
+            weightGradient: <?php echo $cloudOptions['weightGradient'] ? json_encode($cloudOptions['weightGradient']->getRawValue()) : "{0:'#f00', 0.33:'#ff0', 0.66:'#0f0', 1:'#00f'}" ?>
         };
         if( ! $('#fz-tag-canvas').tagcanvas(tagCanvasOptions, 'fz-tag-canvas-list'))
         {
             // TagCanvas failed to load
             $('#myCanvasContainer').hide();
         }
-        // your other jQuery stuff here...
     });
  </script>

@@ -126,6 +126,10 @@ class BasefzTagComponents extends sfComponents
             'freezeActive' => $this->getVar('freezeActive') ? $this->getVar('freezeActive'): false,
             'reverse' => $this->getVar('reverse') ? $this->getVar('reverse'): false,
             'hideTags' => $this->getVar('hideTags') ? $this->getVar('hideTags'): true,
+            'weight' => $this->getVar('weight') ? $this->getVar('weight'): true,
+            'weightMode' => $this->getVar('weightMode') ? $this->getVar('weightMode'): "size",
+            'weightSize' => $this->getVar('weightSize') ? $this->getVar('weightSize'): 1.0,
+            'weightGradient' => $this->getVar('weightGradient') ? $this->getVar('weightGradient'): array('0' => '#f00', '0.33' => '#ff0', '0.66' => '#0f0', '1' =>'#00f'),
         );
 
         $this->executeTagCloud();
