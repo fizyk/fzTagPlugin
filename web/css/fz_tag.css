@@ -36,23 +36,23 @@ ul.fz-tag-cloud li
     display: inline;
 }
 
-ul.fz-tag-cloud li.fz-size-1
+ul.fz-tag-cloud li.fz-size-1 a
 {
     font-size: 1.6em;
 }
-ul.fz-tag-cloud li.fz-size-2
+ul.fz-tag-cloud li.fz-size-2 a
 {
     font-size: 1.3em;
 }
-ul.fz-tag-cloud li.fz-size-3
+ul.fz-tag-cloud li.fz-size-3 a
 {
     font-size: 1em;
 }
-ul.fz-tag-cloud li.fz-size-4
+ul.fz-tag-cloud li.fz-size-4 a
 {
     font-size: 0.8em;
 }
-ul.fz-tag-cloud li.fz-size-5
+ul.fz-tag-cloud li.fz-size-5 a
 {
     font-size: 0.6em;
 }

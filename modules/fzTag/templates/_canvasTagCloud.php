@@ -31,15 +31,18 @@
             freezeActive: <?php echo $cloudOptions['freezeActive'] ? 'true' : 'false' ?>,
             reverse: <?php echo $cloudOptions['reverse'] ? 'true' : 'false' ?>,
             hideTags: <?php echo $cloudOptions['hideTags'] ? 'true' : 'false' ?>,
+            zoom: <?php echo $cloudOptions['zoom'] ? $cloudOptions['zoom'] : 1.0 ?>,
+            shadow: '<?php echo $cloudOptions['shadow'] ? $cloudOptions['shadow'] : "#000000" ?>',
+            shadowBlur: <?php echo $cloudOptions['shadowBlur'] ? $cloudOptions['shadowBlur'] : 0 ?>,
+            shadowOffset: <?php echo $cloudOptions['shadowOffset'] ? $cloudOptions['shadowOffset'] : '[0,0]'?>,
             weight: <?php echo $cloudOptions['weight'] ? 'true' : 'false' ?>,
             weightMode: '<?php echo $cloudOptions['weightMode'] ? $cloudOptions['weightMode'] : "size" ?>',
             weightSize: <?php echo $cloudOptions['weightSize'] ? $cloudOptions['weightSize'] : 1.0 ?>,
             weightGradient: <?php echo $cloudOptions['weightGradient'] ? json_encode($cloudOptions['weightGradient']->getRawValue()) : "{0:'#f00', 0.33:'#ff0', 0.66:'#0f0', 1:'#00f'}" ?>
         };
-        if( ! $('#fz-tag-canvas').tagcanvas(tagCanvasOptions, 'fz-tag-canvas-list'))
-        {
-            // TagCanvas failed to load
-            $('#myCanvasContainer').hide();
-        }
+        $('#fz-tag-canvas').tagcanvas(tagCanvasOptions, 'fz-tag-canvas-list');
+        <?php if($cloudOptions['hideTags']): ?>
+            $('#fz-tag-canvas-list').hide();
+        <?php endif; ?>
     });
  </script>
