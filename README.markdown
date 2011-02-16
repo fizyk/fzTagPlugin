@@ -215,7 +215,7 @@ it supports all plugin's options as component's options as well as width and hei
 Libraries
 ------------
 * Emposha's [FCBKcomplete](http://github.com/emposha/FCBKcomplete) (2.7.4)
-* Graham Breach's [TagCanvas](http://www.goat1000.com/tagcanvas.php) (1.6)
+* Graham Breach's [TagCanvas](http://www.goat1000.com/tagcanvas.php) (1.6.1)
 * elbeanio's [jquery.tagsphere](http://bitbucket.org/elbeanio/jquery.tagsphere/wiki/Home).
 
 

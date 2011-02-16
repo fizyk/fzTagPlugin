@@ -40,9 +40,9 @@
             weightSize: <?php echo $cloudOptions['weightSize'] ? $cloudOptions['weightSize'] : 1.0 ?>,
             weightGradient: <?php echo $cloudOptions['weightGradient'] ? json_encode($cloudOptions['weightGradient']->getRawValue()) : "{0:'#f00', 0.33:'#ff0', 0.66:'#0f0', 1:'#00f'}" ?>
         };
-        $('#fz-tag-canvas').tagcanvas(tagCanvasOptions, 'fz-tag-canvas-list');
-        <?php if($cloudOptions['hideTags']): ?>
+        if( !$('#fz-tag-canvas').tagcanvas(tagCanvasOptions, 'fz-tag-canvas-list'))
+        {
             $('#fz-tag-canvas-list').hide();
-        <?php endif; ?>
+        };
     });
  </script>
