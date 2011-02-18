@@ -215,12 +215,18 @@ it supports all plugin's options as component's options as well as width and hei
 In all three tag clouds, there's option to create cloud out of custom tags, just 
 pass collection of tags as parameter called **tags** along with tag clouds 
 settings, eg:
-    
 
         <?php include_component('fzTag', 'tagCloud', array('tags' => $object->getTags() ));  ?>
 
-Of course, you can use any tag cloud this way.
+Of course, you can use any default tag cloud this way.
 
+Would it happend you'd want two different tag clouds on one page, all you need 
+to set is 'cloud_id' option:
+
+        <?php include_component('fzTag', 'tagCloud', array('cloud_id' => '1 ));  ?>
+
+It's needed only for **canvasTagCloud** or **3dTagCloud** but parameter is also 
+accepted on **tagCloud** component as well.
 
 Libraries
 ------------

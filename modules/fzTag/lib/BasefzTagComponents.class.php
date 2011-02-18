@@ -18,6 +18,11 @@ class BasefzTagComponents extends sfComponents
 
     public function executeTagCloud()
     {
+        if(!is_array($this->cloudOptions))
+        {
+            $this->cloudOptions = array();
+        }
+        $this->cloudOptions['cloud_id'] = $this->getVar('cloud_id') ? '-'.$this->getVar('cloud_id') : '';
         if( !isset( $this->limit ))
         {
             $this->limit = 20;

@@ -1,9 +1,10 @@
 <?php use_stylesheet('../fzTagPlugin/css/fz_tag.css'); ?>
 <?php use_javascript('../fzTagPlugin/js/jquery.tagcanvas.min.js'); ?>
 <h4><?php echo __('Tag cloud', array(), 'fzTag') ?></h4>
-<canvas width="<?php echo $cloudOptions['width']; ?>" height="<?php echo $cloudOptions['height']; ?>" id="fz-tag-canvas">
+<canvas width="<?php echo $cloudOptions['width']; ?>" 
+        height="<?php echo $cloudOptions['height']; ?>" id="fz-tag-canvas<?php echo $cloudOptions['cloud_id']; ?>">
 </canvas>
-<ul class="fz-tag-cloud" id="fz-tag-canvas-list">
+<ul class="fz-tag-cloud" id="fz-tag-canvas-list<?php echo $cloudOptions['cloud_id']; ?>">
     <?php foreach($tags as $tag): ?>
         <li class="fz-size-<?php echo $weightMap[$tag->getWeight()] ?>">
         <?php echo link_to($tag, 'fz_tag_show', $tag) ?>
@@ -40,9 +41,9 @@
             weightSize: <?php echo $cloudOptions['weightSize'] ? $cloudOptions['weightSize'] : 1.0 ?>,
             weightGradient: <?php echo $cloudOptions['weightGradient'] ? json_encode($cloudOptions['weightGradient']->getRawValue()) : "{0:'#f00', 0.33:'#ff0', 0.66:'#0f0', 1:'#00f'}" ?>
         };
-        if( !$('#fz-tag-canvas').tagcanvas(tagCanvasOptions, 'fz-tag-canvas-list'))
+        if( !$('#fz-tag-canvas<?php echo $cloudOptions['cloud_id']; ?>').tagcanvas(tagCanvasOptions, 'fz-tag-canvas-list<?php echo $cloudOptions['cloud_id']; ?>'))
         {
-            $('#fz-tag-canvas-list').hide();
+            $('#fz-tag-canvas-list<?php echo $cloudOptions['cloud_id']; ?>').hide();
         };
     });
  </script>
