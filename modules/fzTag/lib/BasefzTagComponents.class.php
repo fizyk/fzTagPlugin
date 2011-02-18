@@ -106,7 +106,13 @@ class BasefzTagComponents extends sfComponents
             'width' => $this->getVar('width') ? $this->getVar('width') : 100,
             'min_font_size' => $this->getVar('min_font_size') ? $this->getVar('min_font_size') : 10,
             'max_font_size' => $this->getVar('max_font_size') ? $this->getVar('max_font_size') : 16,
-            'zoom' => $this->getVar('zoom') ? $this->getvar('zoom') : 100
+            'zoom' => $this->getVar('zoom') ? $this->getvar('zoom') : 90,
+            'min_zoom' => $this->getVar('min_zoom') ? $this->getvar('min_zoom') : 25,
+            'max_zoom' => $this->getVar('max_zoom') ? $this->getvar('max_zoom') : 120,
+            'zoom_factor' => $this->getVar('zoom_factor') ? $this->getvar('zoom_factor') : 2,
+            'rotate_factor' => $this->getVar('rotate_factor') ? $this->getvar('rotate_factor') : -0.45,
+            'fps' => $this->getVar('fps') ? $this->getvar('fps') : 10,
+            'random_points' => $this->getVar('random_points') ? $this->getvar('random_points') : 50,
         );
 
         $this->executeTagCloud();

@@ -20,6 +20,12 @@
         centrey: <?php echo ($cloudOptions['height']/2); ?>,
         min_font_size: <?php echo $cloudOptions['min_font_size']; ?>,
         max_font_size: <?php echo $cloudOptions['max_font_size']; ?>,
-        zoom: <?php echo $cloudOptions['zoom']; ?>
+        zoom: <?php echo $cloudOptions['zoom']; ?>,
+        min_zoom: <?php echo $cloudOptions['min_zoom']; ?>,
+        max_zoom: <?php echo $cloudOptions['max_zoom']; ?>,
+        zoom_factor: <?php echo $cloudOptions['zoom_factor']; ?>,
+        rotate_factor: <?php echo $cloudOptions['rotate_factor']; ?>,
+        fps: <?php echo $cloudOptions['fps']; ?>,
+        random_points: <?php echo $cloudOptions['random_points']; ?>
     });
 </script>

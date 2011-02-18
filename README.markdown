@@ -175,8 +175,17 @@ Call and options (default values):
                                 'height' => 100,
                                 'min_font_size' => 10,
                                 'max_font_size' => 16,
-                                'zoom' => 100
+                                'zoom' => 100,
+                                'min_zoom' => 25,
+                                'max_zoom' => 120,
+                                'zoom_factor' => 2,
+                                'rotate_factor' => -0.45,
+                                'fps' => 10,
+                                'random_points' => 50,
                                 ));  ?>
+
+To actually use zooming, you'd have to include **jquery.mousewheel** extension as well.
+
 * canvasTagCloud - components generating tag cloud in canvas html5 element using [TagCanvas](http://www.goat1000.com/tagcanvas.php) jQuery plugin created by Graham Breach.
 it supports all plugin's options as component's options as well as width and height for canvas element:
 
@@ -232,7 +241,7 @@ Libraries
 ------------
 * Emposha's [FCBKcomplete](http://github.com/emposha/FCBKcomplete) (2.7.4)
 * Graham Breach's [TagCanvas](http://www.goat1000.com/tagcanvas.php) (1.6.1)
-* elbeanio's [jquery.tagsphere](http://bitbucket.org/elbeanio/jquery.tagsphere/wiki/Home).
+* elbeanio's [jquery.tagsphere](http://bitbucket.org/elbeanio/jquery.tagsphere/wiki/Home) (0.4.4)
 
 
 Thanks
