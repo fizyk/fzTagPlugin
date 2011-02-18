@@ -23,10 +23,13 @@ class BasefzTagComponents extends sfComponents
             $this->limit = 20;
         }
         
-        $this->tags = fzTagTable::getInstance()->getTagsForCloudQuery($this->limit)->execute();
+        if( !isset($this->tags) 
+                || !$this->tags instanceof Doctrine_Collection 
+                || (!$this->tags->getFirst() instanceof fzTag && !$this->tags->count() == 0) )
+        {
+            $this->tags = fzTagTable::getInstance()->getTagsForCloudQuery($this->limit)->execute();
+        }
         $this->weightMap = $this->setWeightMap( $this->tags );
-
-
     }
     
     /**

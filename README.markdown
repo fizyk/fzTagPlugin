@@ -212,6 +212,16 @@ it supports all plugin's options as component's options as well as width and hei
                                 'weightGradient' => array('0' => '#f00', '0.33' => '#ff0', '0.66' => '#0f0', '1' =>'#00f'),
                                 ));  ?>
 
+In all three tag clouds, there's option to create cloud out of custom tags, just 
+pass collection of tags as parameter called **tags** along with tag clouds 
+settings, eg:
+    
+
+        <?php include_component('fzTag', 'tagCloud', array('tags' => $object->getTags() ));  ?>
+
+Of course, you can use any tag cloud this way.
+
+
 Libraries
 ------------
 * Emposha's [FCBKcomplete](http://github.com/emposha/FCBKcomplete) (2.7.4)
