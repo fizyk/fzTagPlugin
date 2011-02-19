@@ -17,6 +17,11 @@ ul.fz-tag-cloud
     list-style: none;
 }
 
+div.fz-tag-cloud-3d
+{
+    background-color: #ffffff;
+}
+
 div.fz-tag-cloud-3d a, ul.fz-tag-cloud a, canvas#fz-tag-canvas a
 {
     text-decoration: none;
