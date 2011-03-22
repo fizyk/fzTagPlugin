@@ -158,7 +158,6 @@ class fzTaggable extends Doctrine_Template
      */
     public function removeAllTags()
     {
-        // TODO decrease weight on all unlinked tags
         $tagIds = $this->getInvoker()->getTags()->getPrimaryKeys();
         $this->getInvoker()->unlink($this->_options['tagAlias']);
         fzTagTable::getInstance()->decreaseTagsWeight($tagIds);

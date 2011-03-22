@@ -242,6 +242,11 @@ Great thanks to Thibault Duplesis, who developed the original
 [dmTagPlugin](http://diem-project.org/plugins/dmtagplugin) for
 [Diem CMF](http://diem-project.org/)
 
+####Languages####
+* English - Grzegorz Śliwiński
+* Polish  - Grzegorz Śliwiński
+* Spanish - Alex Otero
+
 Support and Help
 ------------
 fzTagPlugin is completely free, but you can support it's creator:
