@@ -10,7 +10,7 @@ class BasefzTagActions extends sfActions
     {
         $defaultSorters = sfConfig::get('app_fzTagPlugin_list_sort_default', array());
                 
-        if( !is_array($defaultSorters) or !array_key_exists(array('by', 'order'), $defaultSorters) )
+        if( !is_array($defaultSorters) or !(array_key_exists('by', $defaultSorters) && array_key_exists('order', $defaultSorters)) )
         {
             $defaultSorters = array(
                             'by' => 'name',
