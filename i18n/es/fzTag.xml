@@ -8,17 +8,17 @@
         <source>Start to type...</source>
         <target>Escribir...</target>
       </trans-unit>
-    </body>
-    <body>
       <trans-unit id="2" approved="yes">
         <source>Tag cloud</source>
         <target>Nube de etiquetas</target>
       </trans-unit>
-    </body>
-    <body>
       <trans-unit id="3" approved="yes">
         <source>Tags</source>
         <target>Etiquetas</target>
+      </trans-unit>
+      <trans-unit id="4" approved="yes">
+        <source>Sort by:</source>
+        <target>Sort by:</target>
       </trans-unit>
     </body>
   </file>

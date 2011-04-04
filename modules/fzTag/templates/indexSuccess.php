@@ -6,12 +6,13 @@
 
 ?>
 <h1><?php echo __('Tags', array(), 'fzTag'); ?></h1>
-<div class="fz-tag-list-header">Sort by:
+<div class="fz-tag-list-header">
+    <?php echo __('Sort by:', array(), 'fzTag'); ?>
     <span class="name header-<?php echo $sortParameters['by'] == 'name' 
                 ? ($sortParameters['order'] == 'desc' ? 'desc' : 'asc' )
                 : ''; ?>">
     <?php
-        echo link_to('Name', 'fz_tag', 
+        echo link_to( __('Name'), 'fz_tag', 
                 array(
                     'page'=> $pager->getPage(),
                     'by' => 'name',
@@ -25,7 +26,7 @@
                 ? ($sortParameters['order'] == 'desc' ? 'desc' : 'asc' )
                 : ''; ?>">
     <?php
-        echo link_to('Weight', 'fz_tag',
+        echo link_to( __('Weight'), 'fz_tag',
                 array(
                     'page'=> $pager->getPage(),
                     'by' => 'weight',

@@ -8,23 +8,23 @@
         <source>Tags</source>
         <target>Etiquetas</target>
       </trans-unit>
-      <trans-unit id="2">
+      <trans-unit id="2" approved="yes">
         <source>Name</source>
         <target>Nombre</target>
       </trans-unit>
-      <trans-unit id="3">
+      <trans-unit id="3" approved="yes">
         <source>Tags list</source>
         <target>Listado de etiquetas</target>
       </trans-unit>
-      <trans-unit id="4">
+      <trans-unit id="4" approved="yes">
         <source>Edit "%%name%%" tag</source>
         <target>Editar etiqueta "%%name%%"</target>
       </trans-unit>
-      <trans-unit id="5">
+      <trans-unit id="5" approved="yes">
         <source>New tag</source>
         <target>Nueva etiqueta</target>
       </trans-unit>
-      <trans-unit id="6">
+      <trans-unit id="6" approved="yes">
         <source>Weight</source>
         <target>Peso</target>
       </trans-unit>
