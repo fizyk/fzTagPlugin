@@ -102,6 +102,10 @@ Here are settings for fcbkcomplete script that can be set for tagging per app ba
           maxshownitems:  30    # maximum numbers that will be shown at drop-down list (less better performance)
           maxitems:             # maximum item that can be added to the list
           firstselected:  false # automatically select first element from drop-down
+        list_max_tags:    10    # number of tags shown on a list
+        list_sort_default:      # default list order
+          by:             name
+          order:          asc
 
 Unlike in dmTagPlugin, the *complete_text* parameter is configured through i18n string.
 

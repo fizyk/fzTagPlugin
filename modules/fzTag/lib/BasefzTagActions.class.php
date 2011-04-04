@@ -8,10 +8,17 @@ class BasefzTagActions extends sfActions
 {
     public function executeIndex(sfWebRequest $request)
     {
-        $this->sortParameters = array(
-            'by' => 'name',
-            'order' => 'asc'
-            );
+        $defaultSorters = sfConfig::get('app_fzTagPlugin_list_sort_default', array());
+                
+        if( !is_array($defaultSorters) or !array_key_exists(array('by', 'order'), $defaultSorters) )
+        {
+            $defaultSorters = array(
+                            'by' => 'name',
+                            'order' => 'asc'
+                            );
+        }
+        $this->sortParameters = $defaultSorters;
+        
         if( $request->hasParameter('by') )
         {
             $this->sortParameters['by'] = strip_tags( $request->getParameter('by') );
@@ -22,7 +29,7 @@ class BasefzTagActions extends sfActions
         }
 
         $query = fzTagTable::getInstance()->getListQuery( $this->sortParameters );
-        $this->pager = new sfDoctrinePager('fzTag', 10);
+        $this->pager = new sfDoctrinePager('fzTag', sfConfig::get('app_fzTagPlugin_list_max_tags', 10));
         $this->pager->setQuery($query);
         $this->pager->setPage($request->getParameter( 'page', 1 ));
         $this->pager->init();
