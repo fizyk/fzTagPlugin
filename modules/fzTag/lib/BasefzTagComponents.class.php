@@ -11,13 +11,20 @@
  */
 class BasefzTagComponents extends sfComponents
 {
+    /**
+     * Tag's list component
+     */
     public function executeList()
     {
         $this->tags = fzTagTable::getInstance()->createQuery('t')->execute();
     }
 
+    /**
+     * Basic tag cloud component
+     */
     public function executeTagCloud()
     {
+        // Checking if cloud option's hasn't been set before
         if(!is_array($this->cloudOptions))
         {
             $this->cloudOptions = array();
@@ -28,12 +35,14 @@ class BasefzTagComponents extends sfComponents
             $this->limit = 20;
         }
         
+        // if tags arent already retrieved, querying for them
         if( !isset($this->tags) 
                 || !$this->tags instanceof Doctrine_Collection 
                 || (!$this->tags->getFirst() instanceof fzTag && !$this->tags->count() == 0) )
         {
             $this->tags = fzTagTable::getInstance()->getTagsForCloudQuery($this->limit)->execute();
         }
+        // creating weight map
         $this->weightMap = $this->setWeightMap( $this->tags );
     }
     
@@ -99,8 +108,13 @@ class BasefzTagComponents extends sfComponents
         return $weightMap;
     }
 
+    /**
+     * 3d tag cloud component
+     * It's based on the basic tag cloud
+     */
     public function execute3dTagCloud()
     {
+        //checking for options necessary for the tag cloud
         $this->cloudOptions = array(
             'height' => $this->getVar('height') ? $this->getVar('height') : 100,
             'width' => $this->getVar('width') ? $this->getVar('width') : 100,
@@ -108,12 +122,17 @@ class BasefzTagComponents extends sfComponents
             'max_font_size' => $this->getVar('max_font_size') ? $this->getVar('max_font_size') : 16,
             'zoom' => $this->getVar('zoom') ? $this->getvar('zoom') : 100
         );
-
+        
         $this->executeTagCloud();
     }
 
+    /**
+     * canvas tag cloud component
+     * It is based on the basic tag cloud
+     */
     public function executeCanvasTagCloud()
     {
+        //checking for options necessary for the tag cloud
         $this->cloudOptions = array(
             'height' => $this->getVar('width') ? $this->getVar('width') : 100,
             'width' => $this->getVar('width') ? $this->getVar('width') : 100,
