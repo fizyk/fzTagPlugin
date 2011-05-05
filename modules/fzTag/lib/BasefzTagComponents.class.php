@@ -142,7 +142,7 @@ class BasefzTagComponents extends sfComponents
             'minBrightness' => $this->getVar('minBrightness') ? $this->getVar('minBrightness'): 0.1,
             'textColour' => $this->getVar('textColour') ? $this->getVar('textColour'): "#000000",
             'textHeight' => $this->getVar('textHeight') ? $this->getVar('textHeight'): 15,
-            'textFont' => $this->getVar('textFont') ? $this->getVar('textFont'): "Helvetica, Arial, sans-serif",
+            'textFont' => $this->getVar('textFont') ? $this->getVar('textFont'): "Helvetica, Arial, sans-serif;",
             'outlineColour' => $this->getVar('outlineColour') ? $this->getVar('outlineColour'): "#000000",
             'outlineThickness' => $this->getVar('outlineThickness') ? $this->getVar('outlineThickness'): 1,
             'outlineOffset' => $this->getVar('outlineOffset') ? $this->getVar('outlineOffset'): 5,
